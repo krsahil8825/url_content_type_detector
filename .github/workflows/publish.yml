@@ -1,19 +1,19 @@
 name: Publish to PyPI
 
 on:
-  release:
-    types: [published]
+  push:
+    tags:
+      - "v*"
 
 jobs:
   publish:
-    if: github.event.release.target_commitish == 'main'
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # REQUIRED for setuptools-scm (git tags)
+          fetch-depth: 0  # REQUIRED for setuptools-scm
 
       - name: Set up Python
         uses: actions/setup-python@v5
