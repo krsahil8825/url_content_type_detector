@@ -1,25 +1,46 @@
 [project]
 name = "url-content-type-detector"
-version = "0.1.0"
+dynamic = ["version"]
+authors = [{ name = "Kumar Sahil", email = "krsahil8825@gmail.com" }]
+maintainers = [{ name = "Kumar Sahil", email = "krsahil8825@gmail.com" }]
 description = "A utility to determine the content type of a URL."
 readme = "README.md"
-requires-python = ">=3.14"
-dependencies = [
-    "requests>=2.32.5",
-    "validators>=0.35.0",
+license = { text = "MIT" }
+keywords = [
+    "url",
+    "content-type",
+    "detector",
+    "utility",
+    "python",
+    "url-content-type",
+    "content-type-detection",
+    "url-inspection",
+    "get-content-type",
+    "media-type",
+    "media-format-detection",
 ]
+requires-python = ">=3.8"
+dependencies = ["requests>=2.32.5", "validators>=0.35.0"]
+
+[project.urls]
+Homepage = "https://krsahil.github.io"
+Documentation = "https://url-content-type-detector.readthedocs.io/"
+Repository = "https://github.com/krsahil/url-content-type-detector"
+Issues = "https://github.com/krsahil/url-content-type-detector/issues"
 
 [build-system]
-requires = ["setuptools"]
+requires = ["setuptools>=68", "wheel", "setuptools-scm>=8"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools]
-package-dir = {"" = "src"}
+package-dir = { "" = "src" }
 
 [tool.setuptools.packages.find]
 where = ["src"]
 
+[tool.setuptools_scm]
+version_scheme = "release-branch-semver"
+local_scheme = "no-local-version"
+
 [dependency-groups]
-dev = [
-    "pytest>=9.0.2",
-]
+dev = ["pytest>=9.0.2"]
