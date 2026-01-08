@@ -9,7 +9,7 @@ import requests
 from url_content_type_detector import get_content_type, URLUtilsError
 
 
-class MockResponse:
+class MockResponse:  # pylint: disable=too-few-public-methods
     """A mock response object for simulating requests responses."""
 
     def __init__(self, headers=None, status_code=200):
@@ -24,7 +24,7 @@ class MockResponse:
 
 def test_detect_content_type_html(monkeypatch):
     """Test detection of HTML content type."""
-    def mock_head(*args, **kwargs):
+    def mock_head(*_args, **_kwargs):
         return MockResponse(headers={"Content-Type": "text/html; charset=UTF-8"})
 
     monkeypatch.setattr(requests, "head", mock_head)
@@ -35,7 +35,7 @@ def test_detect_content_type_html(monkeypatch):
 
 def test_detect_content_type_image(monkeypatch):
     """Test detection of image content type."""
-    def mock_head(*args, **kwargs):
+    def mock_head(*_args, **_kwargs):
         return MockResponse(headers={"Content-Type": "image/webp"})
 
     monkeypatch.setattr(requests, "head", mock_head)
@@ -46,7 +46,7 @@ def test_detect_content_type_image(monkeypatch):
 
 def test_detect_content_type_pdf(monkeypatch):
     """Test detection of PDF content type."""
-    def mock_head(*args, **kwargs):
+    def mock_head(*_args, **_kwargs):
         return MockResponse(headers={"Content-Type": "application/pdf"})
 
     monkeypatch.setattr(requests, "head", mock_head)
@@ -63,7 +63,7 @@ def test_invalid_url():
 
 def test_timeout_handling(monkeypatch):
     """Test handling of request timeout."""
-    def mock_head(*args, **kwargs):
+    def mock_head(*_args, **_kwargs):
         raise requests.Timeout
 
     monkeypatch.setattr(requests, "head", mock_head)
@@ -74,7 +74,7 @@ def test_timeout_handling(monkeypatch):
 
 def test_http_error(monkeypatch):
     """Test handling of HTTP error responses."""
-    def mock_head(*args, **kwargs):
+    def mock_head(*_args, **_kwargs):
         return MockResponse(status_code=404)
 
     monkeypatch.setattr(requests, "head", mock_head)
@@ -85,7 +85,7 @@ def test_http_error(monkeypatch):
 
 def test_redirect_handling(monkeypatch):
     """Test handling of URL redirects."""
-    def mock_head(*args, **kwargs):
+    def mock_head(*_args, **_kwargs):
         return MockResponse(headers={"Content-Type": "text/html"})
 
     monkeypatch.setattr(requests, "head", mock_head)
@@ -96,7 +96,7 @@ def test_redirect_handling(monkeypatch):
 
 def test_query_params(monkeypatch):
     """Test handling of URLs with query parameters."""
-    def mock_head(*args, **kwargs):
+    def mock_head(*_args, **_kwargs):
         return MockResponse(headers={"Content-Type": "image/png"})
 
     monkeypatch.setattr(requests, "head", mock_head)
