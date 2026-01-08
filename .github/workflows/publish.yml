@@ -5,6 +5,10 @@ on:
     branches:
       - 'release/**'
 
+permissions:
+  contents: write  # Required to push tags
+  id-token: write  # Required for trusted publishing to PyPI
+
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -24,12 +28,15 @@ jobs:
       - name: Extract version from branch
         id: get_version
         run: |
-          # Extract version from branch name (e.g., release/1.2.x -> 1.2)
+          # Extract version from branch name (e.g., release/1.2.x -> 1.2 or release/1.0.0 -> 1.0)
           BRANCH_NAME="${GITHUB_REF#refs/heads/}"
           echo "Branch: $BRANCH_NAME"
           
-          # Extract MAJOR.MINOR from branch name
-          VERSION_PREFIX=$(echo $BRANCH_NAME | sed -E 's|release/([0-9]+\.[0-9]+)\.x|\1|')
+          # Remove 'release/' prefix
+          VERSION_PART="${BRANCH_NAME#release/}"
+          
+          # Extract MAJOR.MINOR (handles both 1.0.x and 1.0.0 formats)
+          VERSION_PREFIX=$(echo "$VERSION_PART" | sed -E 's/^([0-9]+\.[0-9]+)(\.[0-9x]+)?$/\1/')
           echo "Version prefix: $VERSION_PREFIX"
           echo "version_prefix=$VERSION_PREFIX" >> $GITHUB_OUTPUT
 
@@ -87,6 +94,6 @@ jobs:
       - name: Publish to PyPI
         if: steps.check_tag.outputs.tag_exists == 'false'
         env:
-          UV_PYPI_TOKEN: ${{ secrets.PYPI_API_TOKEN }}
+          UV_PUBLISH_TOKEN: ${{ secrets.PYPI_API_TOKEN }}
         run: |
           uv publish
