@@ -19,7 +19,7 @@ keywords = [
     "media-type",
     "media-format-detection",
 ]
-requires-python = ">=3.8"
+requires-python = ">=3.10"
 dependencies = ["requests>=2.32.5", "validators>=0.35.0"]
 
 [project.urls]
