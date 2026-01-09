@@ -42,5 +42,9 @@ where = ["src"]
 version_scheme = "release-branch-semver"
 local_scheme = "no-local-version"
 
-[dependency-groups]
-dev = ["pytest>=9.0.2"]
+[project.optional-dependencies]
+dev = [
+    "pytest>=9.0.2",
+    "pylint>=3.1.0"
+]
+
