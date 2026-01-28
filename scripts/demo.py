@@ -2,6 +2,9 @@
 
 from url_content_type_detector import get_content_type, URLUtilsError
 
+from url_content_type_detector.utils import is_image
+
+
 def main():
     """This is a demo script to test the URL Content Type Detector."""
     test_urls = [
@@ -19,6 +22,14 @@ def main():
             print(f"\n✅ URL: {url} -> Content Type: {content_type}")
         except URLUtilsError as e:
             print(f"\n❌ URL: {url} -> Error: {str(e)}")
+
+    for url in test_urls:
+        try:
+            content_type = is_image(url)
+            print(f"\n✅ URL: {url} -> is_image: {content_type}")
+        except URLUtilsError as e:
+            print(f"\n❌ URL: {url} -> Error: {str(e)}")
+
 
 if __name__ == "__main__":
     main()

@@ -23,8 +23,13 @@ Licensed under the MIT License.
 from importlib.metadata import version
 from .detector import get_content_type
 from .exceptions import URLUtilsError
+from . import utils
 
-__all__ = ["get_content_type", "URLUtilsError"]
+__all__ = [
+    "get_content_type",
+    "utils",
+    "URLUtilsError",
+]
 
 
 __version__ = version("url-content-type-detector")
