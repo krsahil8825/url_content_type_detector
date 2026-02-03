@@ -1,0 +1,72 @@
+{% extends "sphinx_rtd_theme/layout.html" %}
+
+{% block extrahead %}
+  {{ super() }}
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="URL Content Type Detector - A lightweight, efficient Python utility to determine content types of URLs using HTTP HEAD requests" />
+  <meta name="keywords" content="url, content-type, detector, http, python, library, url-parser, content-detection, mime-type, http-head, lightweight, efficient, production-ready" />
+  <meta name="author" content="Kumar Sahil" />
+  
+  <!-- Open Graph Meta Tags for Social Media -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="URL Content Type Detector - Python Library" />
+  <meta property="og:description" content="Determine the content type of any URL with minimal overhead. Fast, efficient, and production-ready Python library with comprehensive error handling." />
+  <meta property="og:url" content="https://krsahil8825.github.io/url_content_type_detector/" />
+  <meta property="og:image" content="https://krsahil8825.github.io/url_content_type_detector/_static/icon.png" />
+  <meta property="og:site_name" content="URL Content Type Detector" />
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="URL Content Type Detector" />
+  <meta name="twitter:description" content="Lightweight Python utility for detecting URL content types with HTTP HEAD requests" />
+  <meta name="twitter:image" content="https://krsahil8825.github.io/url_content_type_detector/_static/icon.png" />
+  
+  <!-- Additional SEO Tags -->
+  <meta name="robots" content="index, follow" />
+  <meta name="language" content="English" />
+  <meta name="revisit-after" content="7 days" />
+  <link rel="alternate" hreflang="en" href="https://krsahil8825.github.io/url_content_type_detector/" />
+  
+  <!-- Schema.org Structured Data (JSON-LD) for Search Engines -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "URL Content Type Detector",
+    "description": "A lightweight, efficient Python utility to determine content types of URLs using HTTP HEAD requests",
+    "applicationCategory": "DeveloperApplication",
+    "softwareVersion": "{{ version }}",
+    "url": "https://krsahil8825.github.io/url_content_type_detector/",
+    "author": {
+      "@type": "Person",
+      "name": "Kumar Sahil",
+      "url": "https://github.com/krsahil8825"
+    },
+    "image": "https://krsahil8825.github.io/url_content_type_detector/_static/icon.png",
+    "datePublished": "2024-01-01",
+    "dateModified": "2026-02-04",
+    "inLanguage": "en-US",
+    "isAccessibleForFree": true,
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+  
+  <!-- Organization Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "URL Content Type Detector",
+    "url": "https://krsahil8825.github.io/url_content_type_detector/",
+    "logo": "https://krsahil8825.github.io/url_content_type_detector/_static/icon.png",
+    "sameAs": [
+      "https://github.com/krsahil8825/url_content_type_detector",
+      "https://pypi.org/project/url-content-type-detector/"
+    ]
+  }
+  </script>
+{% endblock %}

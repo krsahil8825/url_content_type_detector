@@ -1,0 +1,28 @@
+# Robots.txt for URL Content Type Detector Documentation
+# https://krsahil8825.github.io/url_content_type_detector/
+
+User-agent: *
+Allow: /
+Disallow: /_build/
+Disallow: /_static/
+Disallow: /*?*
+Allow: /*.html$
+Allow: /*.js$
+Allow: /*.css$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.ico$
+Allow: /search.html
+
+# Specific crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Crawl delay
+Crawl-delay: 1
+
+# Sitemap
+Sitemap: https://krsahil8825.github.io/url_content_type_detector/sitemap.xml
