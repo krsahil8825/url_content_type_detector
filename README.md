@@ -8,7 +8,7 @@
 
 A lightweight, efficient utility to determine the content type of any URL with minimal overhead.
 
-[Quick Start](#installation) • [Documentation](#usage) • [Examples](#examples) • [Contributing](#contributing)
+[Quick Start](#installation) • [Documentation](https://krsahil8825.github.io/url_content_type_detector/) • [Examples](#examples) • [Contributing](#contributing)
 
 </div>
 
@@ -27,7 +27,7 @@ A lightweight, efficient utility to determine the content type of any URL with m
 - 🛡️ **Security-First**: Optional strict HTTP status code validation
 - 📦 **Lightweight**: Zero unnecessary dependencies beyond `requests` and `validators`
 - 🧪 **Well-Tested**: Comprehensive test suite with pytest
-- 🐍 **Python 3.14+**: Modern Python support
+- 🐍 **Python 3.10+**: Modern Python support
 
 ---
 
@@ -164,6 +164,15 @@ except URLUtilsError as e:
     print(f"URL Error: {e}")
 ```
 
+### `utils` convenience helpers
+
+```python
+from url_content_type_detector import utils
+
+if utils.is_pdf("https://example.com/report.pdf"):
+    print("PDF detected")
+```
+
 ---
 
 ## Examples
@@ -247,7 +256,7 @@ for link in links:
 
 ## Requirements
 
-- **Python:** 3.14 or higher
+- **Python:** 3.10 or higher
 - **requests:** >= 2.32.5
 - **validators:** >= 0.35.0
 
@@ -259,6 +268,30 @@ for link in links:
 - **Timeout Defaults**: The default 10-second timeout is suitable for most use cases. Adjust based on your network conditions
 - **Redirect Handling**: The library automatically follows HTTP redirects (up to 30 by default in requests)
 - **Connection Pooling**: For bulk URL processing, consider using a `requests.Session` for connection reuse (future feature)
+
+---
+
+## Documentation
+
+You can browse the full documentation at:
+
+- https://krsahil8825.github.io/url_content_type_detector/
+
+To build the docs locally:
+
+```bash
+pip install -e ".[dev]"
+cd docs
+make html
+```
+
+On Windows:
+
+```bat
+pip install -e ".[dev]"
+cd docs
+make.bat
+```
 
 ---
 
