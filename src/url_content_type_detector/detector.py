@@ -1,9 +1,7 @@
-"""
-detector.py
-~~~~~~~~~~~~~
+"""URL content type detection.
 
 This module provides functionality to determine the content type of a URL
-by making an HTTP HEAD request.
+by making an HTTP ``HEAD`` request.
 """
 
 import requests
@@ -15,21 +13,21 @@ def get_content_type(url: str, timeout: int | None = 10, is_secure: bool = True)
     """Fetch the content type of the resource at the given URL.
 
     Args:
-        url (str): The URL of the resource.
-
-        timeout (int): Timeout for the request in seconds.
-            Defaults to `10`. Use `None` for no timeout.
-            Recommended range is 1-60 seconds. Avoid using `None` in production.
-
-        is_secure (bool): If `True`, raises an error for HTTP
-            status codes indicating failure. Defaults to `True`.
+        url: The URL of the resource.
+        timeout: Request timeout in seconds. Defaults to ``10``. Use ``None``
+            for no timeout. Recommended range is 1-60 seconds; avoid using
+            ``None`` in production.
+        is_secure: When ``True``, raises an error for HTTP status codes that
+            indicate failure.
 
     Returns:
-        str: The content type of the resource.
+        The content type reported by the server, or ``"Not Found"`` if the
+        ``Content-Type`` header is missing.
 
     Raises:
         ValueError: If the URL is invalid or the timeout is negative.
-        requests.RequestException: If the request fails for any reason.
+        URLUtilsError: If the request times out, fails, or returns an HTTP
+            error response when ``is_secure`` is ``True``.
     """
 
     try:

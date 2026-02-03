@@ -8,3 +8,9 @@ wheels/
 
 # Virtual environments
 .venv
+
+# dist and build directories
+build/
+dist/
+_dist/
+_build/

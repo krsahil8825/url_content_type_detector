@@ -1,10 +1,5 @@
-"""
-exceptions.py
-~~~~~~~~~~~~~
-
-This module contains custom exceptions for URL utilities.
-"""
+"""Custom exceptions for URL content type detection."""
 
 
 class URLUtilsError(Exception):
-    """Base exception for url_content_type_detector."""
+    """Base exception for URL content type detection errors."""
