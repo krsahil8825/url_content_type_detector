@@ -360,13 +360,10 @@ git checkout -b feature/your-feature-name
 
 ---
 
-## Roadmap
+## Goals for Future Development
 
 - [ ] Async support (`async_get_content_type`)
-- [ ] Connection pooling for batch operations
-- [ ] Caching layer for repeated URLs
-- [ ] Support for custom headers
-- [ ] Testing and build automation with GitHub Actions
+- [ ] Testing of bulk URL processing with connection pooling
 
 ---
 
@@ -395,8 +392,6 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 <div align="center">
 
-**[⬆ back to top](#url-content-type-detector)**
-
-Made with ❤️ by [Kumar Sahil](https://github.com/krsahil8825)
+Made with ❤️ and python by [Kumar Sahil](https://github.com/krsahil8825)
 
 </div>
